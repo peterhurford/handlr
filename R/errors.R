@@ -31,4 +31,6 @@ errors_are_false <- function(exp) { errors_are(FALSE, exp) }
 #'
 #' @param exp expresion. The expression to run.
 #' @export
-errors_are_warnings <- function(exp) { tryCatch(exp, error = function(e) warning(e)) }
+errors_are_warnings <- function(exp) {
+  tryCatch(exp, error = function(e) warning(as.character(e)))
+}
