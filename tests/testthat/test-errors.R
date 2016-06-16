@@ -1,4 +1,5 @@
 context("errors")
+library(handlr)
 
 test_that("it works if it is not an error", {
   expect_equal(2, with_errors_as("error!", { 1 + 1 }))

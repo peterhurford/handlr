@@ -5,9 +5,14 @@
 #' @param are object. The R object to return.
 #' @param exp expression. The expression to run.
 #' @export
-with_errors_as <- errors_are <- function(are, exp) {
+with_errors_as <- function(are, exp) {
     tryCatch(exp, error = function(e) are)
 }
+
+#' @rdname with_errors_as
+#' @aliases with_errors_as
+#' @export
+errors_are <- with_errors_as
 
 #' Convert errors to NA.
 #'
