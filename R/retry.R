@@ -15,7 +15,7 @@ with_retries <- function(expr, num_tries = 1, sleep= 0.001) {
     message(paste0("Attempt ", current_try, " failed."))
     if (current_try < num_tries) {
       cat("Sleeping for ", sleep, "seconds\n")
-      Sys.sleep(sleep_secs)
+      Sys.sleep(sleep)
     }
   }
   if (methods::is(out, "error")) {
