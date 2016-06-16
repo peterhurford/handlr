@@ -21,7 +21,7 @@ with_retries <- function(expr, num_tries = 1, sleep_secs = 0.001) {
   if (is(out, "error")) {
     stop(out)
   } else {
-    TRUE
+    out
   }
 }
 

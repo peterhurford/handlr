@@ -11,8 +11,9 @@ describe("with_retries", {
     
   test_that("it tries to evaluate an expression multiple times", {
     attempt_number <<- 1
-    expect_true(
-      with_retries({ x <- pass_on_third_attempt() }, num_tries = 3, sleep_secs = 0)
+    expect_equal(
+      with_retries({ x <- pass_on_third_attempt() }, num_tries = 3, sleep_secs = 0),
+      "didn't error"
     )
     expect_equal(x, "didn't error")
   })
