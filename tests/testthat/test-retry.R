@@ -4,11 +4,11 @@ describe("with_retries", {
   pass_on_third_attempt <- function() {
     if (attempt_number < 3) {
       attempt_number <<- attempt_number + 1
-      stop("not enough retries")  
+      stop("not enough retries")
     }
     "didn't error"
   }
-    
+
   test_that("it tries to evaluate an expression multiple times", {
     attempt_number <<- 1
     expect_equal(
@@ -23,7 +23,7 @@ describe("with_retries", {
     expect_error(
       with_retries({ x <- pass_on_third_attempt() }, num_tries = 2, sleep = 0),
       "not enough retries"
-    )  
+    )
   })
 
 
