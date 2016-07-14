@@ -33,11 +33,10 @@ with_retries <- function(expr, num_tries = 1, sleep= 0.001) {
 #' @export
 try_with_exit_code <- function(expr, exit_code = 1) {
   out <- evaluate::try_capture_stack(expr, env = parent.frame())
-  if (is(out, "error")) {
-    warning(out)
+  if (methods::is(out, "error")) {
      q(save = "no", status = exit_code)
   } 
-  TRUE #out if we want to get value of evaluated expr
+  out 
 }
 
 #' Evaluate an expression multiple times and if fails, exit R with an exit_code.
