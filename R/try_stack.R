@@ -45,7 +45,7 @@ try_with_exit_code <- function(expr, exit_code = 1) {
 #'
 #' @param expr expression. The expression to evaluate.
 #' @param num_tries numeric. The number of attempts.
-#' @param sleep numeric. How long to wait between attempts.
+#' @param sleep_secs numeric. How long to wait between attempts.
 #' @param exit_code numeric. The value of the exit_code to exit R.
 #' @return TRUE if the expression gets evaluated successfully; exit R otherwise.
 #' @export
