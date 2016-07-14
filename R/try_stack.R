@@ -54,10 +54,3 @@ try_stack <- function(expr, num_tries = 1, sleep_secs = 0.001, exit_code = 1) {
         with_retries(expr, num_tries = num_tries, sleep = sleep_secs), 
         exit_code = exit_code)
 }
-
-#with magrittr WHY DOES MGRITTR VERSION NOT WORK? It doesn't exit R or retry.
-try_stack_mgtr <- function(expr, num_tries = 1, sleep_secs = 0.001, exit_code = 1) {
-    expr %>% 
-    with_retries(., num_tries = num_tries, sleep = sleep_secs) %>%
-    try_with_exit_code(., exit_code = exit_code)
-}

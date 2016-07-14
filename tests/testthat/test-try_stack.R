@@ -33,7 +33,7 @@ describe("try_with_exit_code", {
   })
     test_that("Expr evaluation fails and it exits R with specific exit code", {
     with_mock(
-      `q` = function(status, ...) stop(status),
+      `q` = function(status, ...) status,
       expect_error(try_with_exit_code(sum("someval"), exit_code = 300))
     )
   })
