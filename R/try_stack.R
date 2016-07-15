@@ -33,9 +33,7 @@ with_retries <- function(expr, num_tries = 1, sleep= 0.001) {
 #' @export
 try_with_exit_code <- function(expr, exit_code = 1) {
   out <- evaluate::try_capture_stack(expr, env = parent.frame())
-  if (methods::is(out, "error")) {
-     q(save = "no", status = exit_code)
-  } 
+  if (methods::is(out, "error")) {q(save = "no", status = exit_code)} 
   out 
 }
 
@@ -50,6 +48,5 @@ try_with_exit_code <- function(expr, exit_code = 1) {
 #' @export
 try_stack <- function(expr, num_tries = 1, sleep_secs = 0.001, exit_code = 1) {
     try_with_exit_code(
-        with_retries(expr, num_tries = num_tries, sleep = sleep_secs), 
-        exit_code = exit_code)
+        with_retries(expr, num_tries = num_tries, sleep = sleep_secs), exit_code = exit_code)
 }
