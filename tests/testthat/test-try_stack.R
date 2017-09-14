@@ -25,6 +25,16 @@ describe("with_retries", {
       "not enough retries"
     )
   })
+})
 
-
+describe("try_with_exit_code", {
+    test_that("it evaluates expr successfully", {
+    expect_equal(try_with_exit_code(sum(1, 2)), 3)
+  })
+    test_that("Expr evaluation fails and it exits R with specific exit code", {
+    with_mock(
+      `q` = function(status_code, ...) { stop(status_code) },
+      expect_error(try_with_exit_code(sum("someval"), exit_code = 300), "300")
+    )
+  })
 })
